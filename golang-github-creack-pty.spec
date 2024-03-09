@@ -1,5 +1,3 @@
-%global debug_package %{nil}
-
 # Run tests in check section
 %bcond_without check
 
@@ -13,12 +11,13 @@ Version:		1.1.21
 Summary:	PTY interface for Go
 Name:		golang-github-creack-pty
 
-Release:	1
+Release:	2
 Source0:	https://github.com/creack/pty/archive/v%{version}/pty-%{version}.tar.gz
 URL:		https://github.com/creack/pty
 License:	MIT
 Group:		Development/Other
 BuildRequires:	compiler(go-compiler)
+BuildArch:	noarch
 
 %description
 Pty is a Go package for using unix pseudo-terminals.
@@ -48,16 +47,9 @@ building other packages which use import path with
 
 %build
 %gobuildroot
-for cmd in $(ls -1 _bin) ; do
-	install -Dpm 0755 _bin/$cmd %{buildroot}%{_bindir}/$cmd
-done
-#gobuild -o _bin/go-pty
 
 %install
 %goinstall
-for cmd in $(ls -1 _bin) ; do
-	install -Dpm 0755 _bin/$cmd %{buildroot}%{_bindir}/$cmd
-done
 
 %check
 %if %{with check}
