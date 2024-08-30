@@ -4,14 +4,14 @@
 # https://github.com/creack/pty
 %global goipath		github.com/creack/pty
 %global forgeurl	https://github.com/creack/pty
-Version:		1.1.21
+Version:		1.1.23
 
 %gometa
 
 Summary:	PTY interface for Go
 Name:		golang-github-creack-pty
 
-Release:	2
+Release:	1
 Source0:	https://github.com/creack/pty/archive/v%{version}/pty-%{version}.tar.gz
 URL:		https://github.com/creack/pty
 License:	MIT
